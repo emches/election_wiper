@@ -2,14 +2,30 @@ $(document).ready(function () {
   mySaves = [];
   corgiCount = 0;
   beyonceCount = 0;
+  shuffle(beyonceGifs);
+  shuffle(corgiGifs);
+
+  function shuffle (array) {
+    var i = 0
+      , j = 0
+      , temp = null
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1))
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
+  }
+  
   function addCounter(){
     $.get(chrome.extension.getURL('templates/counter.html'), function (data) {
       $("#globalContainer").append(data);
       var imgURL = chrome.extension.getURL("images/corgi.png");
-      console.log("imgURL:", imgURL)
+    //  console.log("imgURL:", imgURL)
       document.getElementById("corgiPic").src = imgURL;
       imgURL = chrome.extension.getURL("images/bee.png");
-      console.log("imgURL:", imgURL)
+      //console.log("imgURL:", imgURL)
       document.getElementById("beyPic").src = imgURL;
     });
     // var image = $('#corgiPic');
@@ -39,7 +55,7 @@ $(document).ready(function () {
         $("#corgiCount").text(corgiCount);
         break;
     }
-    console.log("Gifs left: ", gifArray.length);
+  //  console.log("Gifs left: ", gifArray.length);
     if (!gifArray.length){ loadGifs(gifType)};
     myGif =  gifArray.pop()
     $(e).find(div).replaceWith( "<img class='gif' src="+myGif+" />" );
@@ -99,6 +115,6 @@ $(document).ready(function () {
           replaceElection();
       }
   });
-  addCounter()
   replaceElection();
+  //addCounter();
 });

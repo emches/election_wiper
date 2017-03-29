@@ -21,13 +21,17 @@ body {
 
 button {
   width: 70px;
-  border: none;
   height: 30px;
   background-color: gold;
   font-weight: bold;
   font-size: 18px;
+  transition: all ease 0.3s;
+
 }
 
+button:active {
+  top: 3px;
+}
 .counterContainer {
   top:35;
   position: fixed;

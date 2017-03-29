@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "I Hate This Election!",
-  "description": "This extension will remove anything election related from your feed",
-  "version": "1.0",
+  "name": "CorBey Feed: Election Edition",
+  "description": "Corbey replaces any election posts on your Facebook feed. Specifically.. with corgis or Beyonce",
+  "version": "1.0.1",
 
   "browser_action": {
-   "default_icon": "icon.png",
+   "default_icon": "icon16.png",
    "default_popup": "popup.html"
   },
   "permissions": [
